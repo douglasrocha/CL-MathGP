@@ -23,8 +23,15 @@
 (defun get-op (index value)
   (funcall (nth index op-list) value))
 
+(defun get-random-op (value)
+  (get-op (random (list-length op-list)) value))
+
 (defun execute-op (operation initial-value)
   (funcall operation initial-value))
+
+;; This function avoids generating division by zero errors
+(defun random-nonzero (max)
+  (1+ (random max)))
 
 (defmacro compose (&rest args)
   (labels ((rec1 (args)
