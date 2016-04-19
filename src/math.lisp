@@ -23,6 +23,9 @@
 (defun get-op (index value)
   (funcall (nth index op-list) value))
 
+(defun get-random-value-and-op (max)
+  (get-random-op (random-nonzero max)))
+
 (defun get-random-op (value)
   (get-op (random (list-length op-list)) value))
 
