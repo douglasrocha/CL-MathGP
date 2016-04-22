@@ -36,14 +36,9 @@
 (defun random-nonzero (max)
   (1+ (random max)))
 
-(defun generate-list-of-operations (value n-operations max-value-op)
-  (append
-    (list (get-op 0 value)
-          (get-op 1 value)
-          (get-op 2 value)
-          (get-op 3 value)
+(defun generate-list-of-operations (n-operations max-value)
     (loop for x from 0 to n-operations
-          collect (get-random-value-and-op max-value-op)))))
+          collect (get-random-value-and-op max-value)))
 
 (defmacro compose (&rest args)
   (labels ((rec1 (args)
